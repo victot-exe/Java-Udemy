@@ -46,4 +46,13 @@ public class Cliente {
     public void setAssento(Assento assento) {
         this.assento = assento;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", assento=" + assento.getNome() +
+                '}';
+    }
 }

@@ -47,6 +47,10 @@ public class DAO <E>{
         return this.abriTransacao().incluir(entidade).fecharTransacao();
     }
 
+    public E obterPorID(Object id){
+        return em.find(classe, id);
+    }
+
     public List<E> obterTodos(int qtd, int deslocamento){
         if(classe == null){
             throw new UnsupportedOperationException("Classe está nula");
