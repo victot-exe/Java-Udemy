@@ -1,0 +1,6 @@
+/*
+	 * private, apenas é visivel dentro da classe
+	 * default, padrão que não tem nada escrito, é visível dentro do pacote
+	 * protected, sempre é transmitido por heranca
+	 * public, todo mundo acessa e vê
+	 */
