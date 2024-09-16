@@ -68,6 +68,19 @@ public class DAO <E>{
         return obterTodos(10, 0);
     }
 
+    public List<E> consultar(String nomeConsulta, Object... parametros){
+        TypedQuery<E> query = em.createNamedQuery(nomeConsulta, classe);
+        for(int i = 0; i < parametros.length; i+=2){
+            query.setParameter(parametros[i].toString(), parametros[i+1]);
+        }
+        return query.getResultList();
+    }
+
+    public E consultarUm(String nomeConsulta, Object... parametros){
+        List<E> lista = consultar(nomeConsulta, parametros);
+        return lista.isEmpty() ? null : lista.getFirst();
+    }
+
     public void fechar(){
         em.close();
     }

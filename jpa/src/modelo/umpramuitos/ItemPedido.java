@@ -13,7 +13,8 @@ public class ItemPedido {
     @ManyToOne
     private Pedido pedido;
 
-    @ManyToOne
+//    esse é o valor default do fecth (...ToOne -> EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Produto produto;
 
     @Column(nullable = false)
