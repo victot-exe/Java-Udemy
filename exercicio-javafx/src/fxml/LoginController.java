@@ -1,6 +1,9 @@
 package fxml;
 
+import org.controlsfx.control.Notifications;
+
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 
 public class LoginController {
@@ -17,9 +20,18 @@ public class LoginController {
 		boolean senhaValida = campoSenha.getText().equals("1234567");
 		
 		if(emailValido & senhaValida) {
-			System.out.println("Sucess");
-		}else
-			System.out.println("Errou!");
+			Notifications.create()
+				.position(Pos.TOP_RIGHT)
+				.title("Login FMLX")
+				.text("Login efetuado com sucesso!")
+				.showInformation();
+		}else {
+			Notifications.create()
+			.position(Pos.TOP_RIGHT)
+			.title("Login FMLX")
+			.text("Usuário e/ou senha invalidos.")
+			.showError();
+		}
 	}
 	
 	
